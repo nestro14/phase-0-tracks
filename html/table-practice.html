@@ -2,8 +2,36 @@
 <html>
 <head>
   <title>Table Practice</title>
+  <style type="text/css">
+  /* A little css for the 2nd table */
+    body {
+      margin: 25px;
+    }
+    .fancy-table{
+      border: solid;
+    }
+    .rowspan2{
+      color: white;
+      background-color: blue;
+      font-size: 20px;
+      text-align: justify;
+    }
+    .colspan-white{
+      background-color: white;
+      width: 170px;
+      height: 10px;
+      float: left;
+    }
+    .colspan-red{
+      background-color: red;
+      width: 170px;
+      height: 10px;
+    }
+  </style>
 </head>
 <body>
+<h1>Release 0 Table - Ice Cream</h1>
+<hr>
 <table border="1">
   <tr>
     <th>Ice Cream Name</th>
@@ -36,5 +64,60 @@
     <td>Argentina</td>
   </tr>
 </table>
+<br>
+
+<h1>Release 1 Table - The Red, White & Blue</h1>
+<hr>
+<table>
+<table class="fancy-table">
+    <tr>
+      <td rowspan="2" class="rowspan2">&nbsp;* * * * * * * * * *<br>&nbsp;&nbsp;* * * * * * * * * *<br>&nbsp;* * * * * * * * * *<br>&nbsp;&nbsp;* * * * * * * * * *<br>&nbsp;* * * * * * * * * *</td>
+      <td>
+        <table>
+          <tr>
+           <td colspan="2" class="colspan-red">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="colspan-white">&nbsp;</td>
+          </tr>
+          <tr>
+           <td colspan="2" class="colspan-red">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="colspan-white">&nbsp;</td>
+          </tr>
+          <tr>
+           <td colspan="2" class="colspan-red">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="colspan-white">&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="colspan-red">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="colspan-white">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="colspan-red">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="colspan-white">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="colspan-red">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="colspan-white">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="colspan-red">&nbsp;</td>
+    </tr>
+</table>
+</table>
+
 </body>
 </html>
