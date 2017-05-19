@@ -3,10 +3,11 @@
 **Instructions: ** Define each of the following Git concepts.
 
 * What is version control?  Why is it useful?
-Version control is a system that monitors all modifiations to specified computer files over time. It also allows you you to revert any changes you have made and share files and changes accross users with access to the files. It's useful in allow users to revert, monitor, and test all kinds of changes. It also helps many collaborators to organize and coordinate thier changes with everyone to ensure the final project is what they intended it to be.
+*A system that enables you to keep track of changes to files in an orderly manner. It is useful because you can keep a log of every change and addition, and if needed revert to a previous version should the code break.
 * What is a branch and why would you use one?
-A branch is copy of the original files that you wish to edit or make changes to. You use a branch to ensure the files can be reverted back to its origal state. It also serves as copy that you can edit without affecting the work of other collaborators.
+* A branch is a “movable pointer”, which basically means that each branch is a master pointing at a particular commit that can then be developed into more commits and be merged back when needed to add the changes (features) developed from this pointer.
 * What is a commit? What makes a good commit message?
-A commit is a record of a modification made to a file(s). A good commit message is a concise description of the modification made.
+* A commit is a “change record”, it’s a command that enables your changes to be recorded after you’ve added (staged) them, and records this action with a unique ID, the author and the time stamp so to build a log of the changes and keep track of how the program evolves. A good commit message is a very condensed summer of what you have done up to this point in imperative form.
 * What is a merge conflict?
-A merge conflict is when two or more different branches make a change to the same file and line in repo to create a contradiction in data when merged togther.
+* It occurs when trying to merge branches that have diverged, or in other words, have disagreeing changes so git doesn’t know how to properly digest the changes and you have to help Git decide what to do.
+
