@@ -12,3 +12,7 @@
 .job-list{
   font-size: .8em;
 }
+
+h1:hover {
+  text-shadow: 2px 2px slategray;
+}
