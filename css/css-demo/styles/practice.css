@@ -1,0 +1,22 @@
+#contact-info {
+  font-size: .8em;
+}
+
+ .job {
+  background:#e9e5dc;
+  border-radius: .5em;
+  padding: 1px 0 5px 10px !important;
+  margin-bottom: 15px;
+}
+
+.job-list{
+  font-size: .8em;
+}
+
+h1:hover {
+  text-shadow: 2px 2px slategray;
+}
+
+ul li {
+  font-weight: bold;
+}
