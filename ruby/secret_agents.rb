@@ -8,7 +8,11 @@ def encrypt(string)
   count = string.length
   str_index = 0
   until count == 0
-    string[str_index] = string[str_index].next!
+    if string[str_index] == 'z'
+      string[str_index] = 'a'
+    else
+      string[str_index] = string[str_index].next!
+    end
     count -= 1
     str_index += 1
   end
@@ -16,6 +20,7 @@ def encrypt(string)
 end
 
 encrypt("abc")
+encrypt("zed")
 
 #Decrypt
 #1. Determine length of string
@@ -37,3 +42,4 @@ def decrypt(string)
 end
 
 decrypt("bcd")
+decrypt("afe")
