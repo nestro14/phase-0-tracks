@@ -17,10 +17,11 @@ def encrypt(string)
     str_index += 1
   end
   puts string
+  string # added string so that it returns the string as the output to be used by other methods.
 end
 
-encrypt("abc")
-encrypt("zed")
+# encrypt("abc")
+# encrypt("zed")
 
 #Decrypt
 #1. Determine length of string
@@ -39,7 +40,10 @@ def decrypt(string)
     str_index += 1
   end
   puts string
+  string # added string so that it returns the string as the output to be used by other methods.
 end
 
-decrypt("bcd")
-decrypt("afe")
+# decrypt("bcd")
+# decrypt("afe")
+
+decrypt(encrypt("swordfish"))
