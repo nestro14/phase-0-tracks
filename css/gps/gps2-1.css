@@ -1,3 +1,53 @@
 body  {
-  background-color: lightgreen;
+/*   background-color: lightgreen; */
+  padding: 0px;
+  max-width: 900px;
+}
+
+header {
+  font-weight: bold;
+}
+
+h2 {
+  font-family: arial, san-serif;
+}
+
+li {
+  text-decoration: none;
+}
+
+.column-1 {
+  background-color: lightblue;
+  width: 45%;
+  height: 1045px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 15px;
+}
+
+.column-2 {
+  background-color:lightblue;
+  width: 45%;
+  height: 1045px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 15px;
+}
+
+header {
+  background-color: lightblue;
+  background-image: url("https://github.com/ahamiltoniv/phase-0-tracks/blob/master/css/positioning/octopus.png?raw=true");
+  background-size: 20px 25px;
+}
+
+footer {
+  background-color: lightgray;
+  height:75px;
+  text-align: center;
+  line-height: 75px;
+}
+
+details {
+  background-color: lightgray;
+  border-bottom: solid 2px black;
 }
