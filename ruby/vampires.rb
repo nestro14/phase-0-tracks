@@ -30,7 +30,7 @@ def enter_valid_digit(valid_digit=0)
   valid_digit
 end
 
-def vampire_allery?(allergies)
+def vampire_allergy?(allergies)
   allergies.include?('sunshine')
 end
 
@@ -61,10 +61,10 @@ employees = enter_valid_digit(employees).to_i
   puts "Does employee ##{employee_number} have any allergies? \nIf so, please list them and type in 'done' when finshed"
   until allergies.last == 'done'
     allergies << gets.chomp.downcase
-    break if vampire_allery?(allergies)
+    break if vampire_allergy?(allergies)
   end
 
-  if vampire_allery?(allergies)
+  if vampire_allergy?(allergies)
     puts "Probably a vampire."
   elsif human_age?(age, birth_year) && eats_garlic_bread?(garlic_bread_order) && wants_insurance?(health_insurance)
     puts "Probably not a vampire."
