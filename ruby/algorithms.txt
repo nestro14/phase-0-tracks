@@ -1,0 +1,33 @@
+<!-- Pseudocode on how to use an elevator for my robot -->
+- to use the elevator to change floors do the following
+    - call the elevator to your floor
+        - press the button next to the elevator door if there is only one button to call the elevator
+        - otherwise determine whether you want to go up or down relative to the floor you are on
+            - many times you will see two buttons aligned vertically next to the elevator to either go up or down, press the top button if you wish to go up
+            - otherwise press the bottom button to go down
+    - when the elevator door arrives to your floor, it will open. Go inside
+    - locate the navigation panel which contains a list of floors buttons
+        - get off the elevator if you dont find the floor panel to be in number format, since i am not there to guide you you will get lost and wont know which floor to go to
+        -otherwise you should see a list of floors available to you in number format with a few floors being the exception, 'B' is for basement, 'C','M', or 'L' are normally the main/lobby floor 
+    - decide which floor you want to go to
+    - press the floor number or letter of the floor you wish to go to and the fllor's button will illuminate
+    - while your floor's button is no longer illuminated and the floor indicator on the top of the elevator sliding doors is illuminated, don't get off
+        - otherwise, get off the elevator
+    you have reached your elevator
+- otherwise stay on your floor 
+
+<!-- Pseudocode for real life task of Brushing your teeth  -->
+- locate your tooth-brush and toothpaste
+- head to your bathroom sink
+- determine whether you want to use a little, fair amount, or a lot of toothpaste
+- apply the amount of toothpaste determined earlier to your toothbrush
+- begin to brush your teeth in a circular motion and cover all areas of your dentures you wish to clean
+- determine the tempeture of water you wish to use, cold, warm, or hot
+    -turn cold/hot faucet handles accordingly to the tempeture of the water you wish to use to rinse your mouth
+    -if you are done brushing your teeth
+        - risnse your mouth
+    - otherwise keep brushing
+- once you are done rinsing your mouth, clean your toothbrush with water to prepare it for the next use
+- dry your mouth and hands
+- your teeth are now clean!
+
