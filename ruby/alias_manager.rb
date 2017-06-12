@@ -64,12 +64,19 @@ VOWELS = ['a','e','i','o','u']
 CONSONANTS = ('a'..'z').to_a.delete_if{|c| char_vowel?(c) == true}
 
 enter_another_name = ''
+aliases = []
 
 until enter_another_name.downcase == 'quit'
   puts "\nPlease enter a name that you would like to convert to an alias: "
   original_name = gets.chomp
-  puts "The alias for #{original_name} is: #{create_alias(original_name)}"
+  alias_name = create_alias(original_name)
+  aliases << [original_name, alias_name]
+  puts "The alias for #{original_name} is: #{alias_name}"
   print "Would you like to enter in another(Enter)?"
   enter_another_name = gets.chomp
+  print "\n" if enter_another_name == 'quit'
 end
 
+aliases.each do |names|
+  puts "#{names.first} is also known as #{names.last}"
+end
