@@ -56,8 +56,12 @@ def convert_name_to_alias(spy_name)
 end
 
 def create_alias(spy_name)
-  first_name, last_name = swap_first_last_name(spy_name)
-fake_name = convert_name_to_alias(first_name).concat(' ') + convert_name_to_alias(last_name)
+  if swap_first_last_name(spy_name).count > 1
+    first_name, last_name = swap_first_last_name(spy_name)
+  fake_name = convert_name_to_alias(first_name).concat(' ') + convert_name_to_alias(last_name)
+  else
+    fake_name = convert_name_to_alias(spy_name)
+  end
 end
 
 VOWELS = ['a','e','i','o','u']
