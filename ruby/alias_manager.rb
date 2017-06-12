@@ -19,7 +19,7 @@ def swap_first_last_name(full_name)
 end
 
 def char_vowel?(char)
-  char.rindex(/[aeiou]/) == nil ? false : true
+  VOWELS.include?(char.downcase)
 end
 
 def swap_case?(char)
@@ -52,7 +52,7 @@ def next_consonant(char)
 end
 
 def convert_name_to_alias(spy_name)
-  spy_name.chars.map{|char| char_vowel?(char) ? next_vowel(char) : next_consonant(char) }.join
+  spy_name.chars.map{|char| char_vowel?(char) ? next_vowel(char) : next_consonant(char)}.join
 end
 
 def create_alias(spy_name)
