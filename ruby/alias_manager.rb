@@ -14,9 +14,6 @@
 # create method to put the alias all together
 # create a loop to ask user for names to be changed into an alias
 
-VOWELS = ['a','e','i','o','u']
-CONSONANTS = ('a'..'z').to_a.delete_if{|c| char_vowel?(c) == true}
-
 def swap_first_last_name(full_name)
   full_name.split(' ').reverse!
 end
@@ -63,5 +60,16 @@ def create_alias(spy_name)
 fake_name = convert_name_to_alias(first_name).concat(' ') + convert_name_to_alias(last_name)
 end
 
-p create_alias("Felicia Torres")
+VOWELS = ['a','e','i','o','u']
+CONSONANTS = ('a'..'z').to_a.delete_if{|c| char_vowel?(c) == true}
+
+enter_another_name = ''
+
+until enter_another_name.downcase == 'quit'
+  puts "\nPlease enter a name that you would like to convert to an alias: "
+  original_name = gets.chomp
+  puts "The alias for #{original_name} is: #{create_alias(original_name)}"
+  print "Would you like to enter in another(Enter)?"
+  enter_another_name = gets.chomp
+end
 
