@@ -6,7 +6,7 @@ class Santa
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @age = 0
+    @age = rand(0..140)
   end
 
   def speak
@@ -28,23 +28,20 @@ class Santa
 
 end
 
-#Test code
-claus = Santa.new("Male", "Latino")
-claus.speak
-claus.eat_milk_and_cookies("Chocolate Chip")
-claus.celebrate_birthday
-claus.get_mad_at("Donner")
-p claus.age
-p claus.gender
-p claus
+# #Test Driver code
+# claus = Santa.new("Male", "Latino")
+# claus.speak
+# claus.eat_milk_and_cookies("Chocolate Chip")
+# claus.celebrate_birthday
+# claus.get_mad_at("Donner")
+# p claus.age
+# p claus.gender
+# p claus
 
-# santas = []
-# example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
-# example_ethnicities = ["black", "Latino", "white", "Japanese", "Chinese", "Hawaiian", "N/A", "Korean", "European", "Haitian"]
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese", "Chinese", "Hawaiian", "N/A", "Korean", "European", "Haitian"]
 
-# 10.times {santas << Santa.new(example_genders.sample, example_ethnicities.sample)}
-
-# santas.each do |santa|
-#   puts "This santa's gender and ethnicity is: #{santa.gender} and #{santa.ethnicity}"
-# end
-
+1_000.times do
+  santa = Santa.new(example_genders.sample, example_ethnicities.sample)
+  puts "Santa info: gender:#{santa.gender}, Age:#{santa.age}, Ethnicity:#{santa.ethnicity}"
+end
