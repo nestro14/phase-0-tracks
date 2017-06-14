@@ -13,7 +13,7 @@
 
 # Method to remove an item from the list
 # input: item name, which is a string
-# steps: i would the delete method in hash class, hash_name[item].delete
+# steps: i would the delete method in hash class, hash_name.delete(name)
 # output: output the item that was removed from the hash
 
 # Method to update the quantity of an item
@@ -34,7 +34,7 @@ def create_list(string, empty_hash)
   end
 end
 
-def add_item(string, hash_items, quantity = nil)
+def add_item(string, hash_items, quantity = 0)
   hash_items[string] = quantity
 end
 
@@ -57,3 +57,17 @@ add_item("apple",list_of_items)
 remove_item('lemon', list_of_items)
 update_item_quantity('apple', 3, list_of_items)
 print_list(list_of_items)
+
+
+# What did you learn about pseudocode from working on this challenge?
+# => I learned that pseuddocode helps you think about the problem before hand to help you get started in writing your code
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# => The trade of using arrays would make eaiser to put the values in the array, but using a hash is much more efficient in terms of searching for a specific item/value.
+# What does a method return?
+# => A method return the last variable in the method or what you specify using the return key-word.
+# What kind of things can you pass into methods as arguments?
+# => you can pass in anything into methods are arguments. Anything that is an object really, which in ruby almost everything is an object.
+# How can you pass information between methods?
+# => you can reference a method within a method and pass information that way or pass in the same variables used in other methods are parameters.
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+# => hash methods were solidified in this challage and nothing is really confusing at this point.
