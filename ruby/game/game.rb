@@ -38,7 +38,7 @@ class Game
   end
 
   def calculate_guess_limit
-    # code goes here
+    @phrase.length <= 12 ? guess_limt = 7 : guess_limit = 12
   end
 
   def display_result_message
