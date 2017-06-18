@@ -29,8 +29,8 @@ class Game
     # code goes here
   end
 
-  def char_in_phrase(phrase)
-    # code goes here
+  def char_in_phrase(char)
+    @phrase.include?(char)
   end
 
   def display_wrong_guess_count
