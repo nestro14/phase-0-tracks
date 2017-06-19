@@ -53,11 +53,18 @@ class Game
   end
 
   def set_guessing_phrase_display
-    @progress_of_guessed_phrase = ['_'] * 11
+    @phrase.chars.each do |character|
+      if character != ' '
+        @progress_of_guessed_phrase << '_'
+      else
+        @progress_of_guessed_phrase << character
+      end
+    end
   end
 
   def calculate_guess_limit
-    @phrase.length <= 12 ? @guess_limit = 7 : @guess_limit = 12
+    actual_phrase_length = @phrase.gsub(/\s/, '')
+    actual_phrase_length.length <= 12 ? @guess_limit = 7 : @guess_limit = 12
   end
 
   def game_over?
