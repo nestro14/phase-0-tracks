@@ -35,12 +35,13 @@ class Game
     if char_in_phrase(char)
       match_char_with_phrase_index(char)
     else
+      puts "You guessed wrong"
       wrong_guesses << char
       @guess_limit -= 1
     end
   end
 
-  def duplicate_guess(char)
+  def duplicate_guess?(char)
     if @progress_of_guessed_phrase.include?(char) || @wrong_guesses.include?(char)
       true
     else
@@ -77,9 +78,38 @@ class Game
 
   def display_result_message
     if @guess_limit == 0
-      "Wow, you really couldn't guess that? You lose!"
+      puts "Wow, you really couldn't guess that? You lose!"
     elsif @phrase.chars == @progress_of_guessed_phrase
-      "Congrats!! You guessed the phrase right! Good job!"
+      puts "Congrats!! You guessed the phrase right! Good job!"
     end
   end
+end
+
+# Driver Code
+puts "Welcome to guess that word/phrase!"
+puts "User 1, enter in a word or phrase for User 2 to guess: "
+
+new_game = Game.new(gets.chomp.downcase)
+new_game.calculate_guess_limit # sets guess limit based on word/phrase length
+new_game.set_guessing_phrase_display # sets display of underscores to simulate phrase/word
+system 'clear' # clear screen so that user 2 cannot see word of phrase entered
+
+puts "Guess the following phrase/word"
+puts new_game.progress_of_guessed_phrase.join(' ')
+
+until new_game.game_over?
+  puts "Enter a character you think belongs in the phrase/word: "
+  character = gets.chomp
+
+  until !new_game.duplicate_guess?(character)
+    puts "You already guessed this character, enter another: "
+    character = gets.chomp
+  end
+
+  new_game.update_guessing_phrase(character)
+  puts ''
+  puts new_game.progress_of_guessed_phrase.join(' ')
+  puts "You have #{new_game.guess_limit} guesses left."
+
+  new_game.display_result_message if new_game.game_over?
 end
