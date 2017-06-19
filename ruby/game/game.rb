@@ -19,11 +19,10 @@ class Game
 
   def initialize(phrase)
     @phrase = phrase
-    @guess_count = 0
     @game_over = nil
     @progress_of_guessed_phrase = []
     @wrong_guesses = []
-    guess_limit = 0
+    @guess_limit = 0
   end
 
   def match_char_with_phrase_index(char)
@@ -53,16 +52,12 @@ class Game
     @phrase.include?(char)
   end
 
-  def display_wrong_guess_count
-    # code goes here
-  end
-
   def set_guessing_phrase_display
     @progress_of_guessed_phrase = ['_'] * 11
   end
 
   def calculate_guess_limit
-    @phrase.length <= 12 ? guess_limt = 7 : guess_limit = 12
+    @phrase.length <= 12 ? @guess_limit = 7 : @guess_limit = 12
   end
 
   def display_result_message

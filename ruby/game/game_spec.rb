@@ -8,7 +8,8 @@ describe 'Game' do
   end
 
   it "returns a guess limit of 7" do
-    expect(new_game.calculate_guess_limit).to eq(7)
+    new_game.calculate_guess_limit
+    expect(new_game.guess_limit).to eq(7)
   end
 
   it "returns a true if character is in phrase" do
@@ -43,6 +44,15 @@ describe 'Game' do
     new_game.set_guessing_phrase_display
     new_game.update_guessing_phrase('g')
     expect(new_game.progress_of_guessed_phrase.count('g')).to eq(2)
+  end
+
+  it "displays the number of guesses left based on the guess limit" do
+    new_game.set_guessing_phrase_display
+    new_game.calculate_guess_limit
+    new_game.update_guessing_phrase('k') #wrong guess will decrement guess limit
+    new_game.update_guessing_phrase('l')
+    new_game.update_guessing_phrase('h')
+    expect(new_game.guess_limit).to eq(4)
   end
 
 end
