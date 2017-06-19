@@ -69,6 +69,10 @@ class Game
   end
 
   def display_result_message
-    # code goes here
+    if @guess_limit == 0
+      "Wow, you really couldn't guess that? You lose!"
+    elsif @phrase.chars == @progress_of_guessed_phrase
+      "Congrats!! You guessed the phrase right! Good job!"
+    end
   end
 end
