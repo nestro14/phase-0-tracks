@@ -4,7 +4,7 @@
 # Define methods:
 #   - initailize method
 #   - update_phrase() => returns updated phrase based on user input
-#   - char_in_pharse?() => returns true if char is in phrase
+#   - char_in_phrase?() => returns true if char is in phrase
 #   - display_result_message() => return winning/losing message
 #   - display_wrong_guess_count => displays wrong guess count
 #   - calculate_guess_limit => return guess lime fo 7 if phrase is <= 12 and 12 if guess limit is > 12
@@ -15,18 +15,32 @@
 # diplay game result
 
 class Game
-  attr_accessor :guess_count, :phrase, :game_over, :progress_of_guessed_phrase, :guess_limit
+  attr_accessor :guess_count, :phrase, :game_over, :progress_of_guessed_phrase, :guess_limit, :wrong_guesses
 
   def initialize(phrase)
     @phrase = phrase
     @guess_count = 0
     @game_over = nil
     @progress_of_guessed_phrase = []
+    @wrong_guesses = []
     guess_limit = 0
   end
 
-  def update_phrase
-    # code goes here
+  def update_phrase(char)
+    if char_in_phrase(char)
+      @progress_of_guessed_phrase << char
+    else
+      wrong_guesses << char
+      @guess_limit -= 1
+    end
+  end
+
+  def duplicate_guess(char)
+    if @progress_of_guessed_phrase.include?(char) || @wrong_guesses.include?(char)
+      true
+    else
+      false
+    end
   end
 
   def char_in_phrase(char)
