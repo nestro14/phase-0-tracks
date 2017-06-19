@@ -26,7 +26,7 @@ class Game
     guess_limit = 0
   end
 
-  def update_phrase(char)
+  def update_guessing_phrase(char)
     if char_in_phrase(char)
       @progress_of_guessed_phrase << char
     else
@@ -49,6 +49,10 @@ class Game
 
   def display_wrong_guess_count
     # code goes here
+  end
+
+  def set_guessing_phrase_display
+    @progress_of_guessed_phrase = ['_'] * 11
   end
 
   def calculate_guess_limit

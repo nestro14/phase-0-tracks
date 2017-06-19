@@ -32,4 +32,15 @@ describe 'Game' do
   it "returns a false if character is not in wrong guesses or progress of guessed array" do
     expect(new_game.duplicate_guess('g')).to eq(false)
   end
+
+  it "sets the display to an empty array of underscore characters" do
+    array = ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"]
+    new_game.set_guessing_phrase_display
+    expect(new_game.progress_of_guessed_phrase).to match_array(array)
+  end
+
+  # it "inserts a character in progress_of_guessed_phrase array" do
+  #   expect(new_game.update_guessing_phrase('g')).to eq(true)
+  # end
+
 end
