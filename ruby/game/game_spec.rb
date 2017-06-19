@@ -39,8 +39,10 @@ describe 'Game' do
     expect(new_game.progress_of_guessed_phrase).to match_array(array)
   end
 
-  # it "inserts a character in progress_of_guessed_phrase array" do
-  #   expect(new_game.update_guessing_phrase('g')).to eq(true)
-  # end
+  it "inserts a character in progress_of_guessed_phrase array" do
+    new_game.set_guessing_phrase_display
+    new_game.update_guessing_phrase('g')
+    expect(new_game.progress_of_guessed_phrase.count('g')).to eq(2)
+  end
 
 end

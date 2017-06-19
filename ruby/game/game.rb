@@ -26,9 +26,15 @@ class Game
     guess_limit = 0
   end
 
+  def match_char_with_phrase_index(char)
+    @phrase.chars.each_with_index do |element, idx|
+      element == char ? @progress_of_guessed_phrase[idx] = char : next
+    end
+  end
+
   def update_guessing_phrase(char)
     if char_in_phrase(char)
-      @progress_of_guessed_phrase << char
+      match_char_with_phrase_index(char)
     else
       wrong_guesses << char
       @guess_limit -= 1
