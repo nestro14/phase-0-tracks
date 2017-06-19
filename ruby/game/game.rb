@@ -60,6 +60,14 @@ class Game
     @phrase.length <= 12 ? @guess_limit = 7 : @guess_limit = 12
   end
 
+  def game_over?
+    if @guess_limit == 0 || @phrase.chars == @progress_of_guessed_phrase
+      true
+    else
+      false
+    end
+  end
+
   def display_result_message
     # code goes here
   end
