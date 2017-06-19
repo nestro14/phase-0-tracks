@@ -62,7 +62,7 @@ describe 'Game' do
     expect(new_game.game_over?).to eq(false)
   end
 
-  it "returns true if the game is over" do
+  it "returns true if the game is over by guessing phrase" do
     new_game.set_guessing_phrase_display
     new_game.calculate_guess_limit
     new_game.update_guessing_phrase('p')
@@ -74,6 +74,27 @@ describe 'Game' do
     new_game.update_guessing_phrase('i')
     new_game.update_guessing_phrase('n')
     expect(new_game.game_over?).to eq(true)
+  end
+
+  it "returns true if the game is over by running out of guesses" do
+    new_game.set_guessing_phrase_display
+    new_game.calculate_guess_limit
+    new_game.update_guessing_phrase('q')
+    new_game.update_guessing_phrase('w')
+    new_game.update_guessing_phrase('e')
+    new_game.update_guessing_phrase('t')
+    new_game.update_guessing_phrase('y')
+    new_game.update_guessing_phrase('u')
+    new_game.update_guessing_phrase('s')
+    expect(new_game.game_over?).to eq(true)
+  end
+
+  it "returns false if the game is over" do
+    new_game.calculate_guess_limit
+    new_game.update_guessing_phrase('q')
+    new_game.update_guessing_phrase('w')
+    new_game.update_guessing_phrase('p')
+    expect(new_game.game_over?).to eq(false)
   end
 
 end
