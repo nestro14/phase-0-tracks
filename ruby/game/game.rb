@@ -99,11 +99,11 @@ puts new_game.progress_of_guessed_phrase.join(' ')
 
 until new_game.game_over?
   puts "Enter a character you think belongs in the phrase/word: "
-  character = gets.chomp
+  character = gets.chomp.downcase
 
   until !new_game.duplicate_guess?(character)
     puts "You already guessed this character, enter another: "
-    character = gets.chomp
+    character = gets.chomp.downcase
   end
 
   new_game.update_guessing_phrase(character)
