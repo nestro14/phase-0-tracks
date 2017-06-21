@@ -7,3 +7,11 @@ colors.push('pink');
 
 console.log(colors);
 console.log(names);
+
+var horse = {};
+
+for (var i = colors.length - 1; i >= 0; i--) {
+  horse[names[i]] = colors[i];
+}
+
+console.log(horse);
