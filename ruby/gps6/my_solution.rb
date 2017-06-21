@@ -120,3 +120,9 @@ end
 
 #=======================================================================
 # Reflection Section
+# What are the differences between the two different hash syntaxes shown in the state_data file? The diffence is are the keys within the hashes. One key uses a string and another a symbol as a key.
+# What does require_relative do? Require_relative loads a file relative to the directory its in.
+# How is it different from require? Require loads files not relative to the directory and is used often to load gems and pulgins to use in your ruby code.
+# What are some ways to iterate through a hash? you can use the each methods and many enumerable methods to iterate through the hash.
+# When refactoring virus_effects, what stood out to you about the variables, if anything? The fact that the variables kept being referenced stood out to me.
+# What concept did you most solidify in this challenge? Refactoring was solidifed in this chanllege. Try to reduce reduncancy and make the code DRY.
