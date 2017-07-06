@@ -1,4 +1,4 @@
-
+RELEASE 2
 CREATE TABLE person
   (
     person_id INTEGER PRIMARY KEY,
@@ -137,3 +137,26 @@ alias_id    alias       person_id
 6           Chuck Norr  2         
 8           Sly         3         
 9           The Italia  3
+
+RELEASE 3
+sqlite> SELECT first_name, last_name, alias FROM person JOIN alias ON person.person_id = alias.person_id;
+
+first_name  last_name   alias     
+----------  ----------  ----------
+Jun-fan     Lee         Bruce Lee 
+Jun-fan     Lee         Small Phoe
+Jun-fan     Lee         Little Dra
+Carlos Ray  Norris      The Texasa
+Carlos Ray  Norris      Ground Chu
+Carlos Ray  Norris      Chuck Norr
+Michael     Stallone    Sly       
+Michael     Stallone    The Italia
+
+sqlite> SELECT first_name, last_name, alias 
+FROM person JOIN alias ON person.person_id = alias.person_id
+WHERE first_name = "Jun-fan";
+first_name  last_name   alias     
+----------  ----------  ----------
+Jun-fan     Lee         Bruce Lee 
+Jun-fan     Lee         Small Phoe
+Jun-fan     Lee         Little Dra
