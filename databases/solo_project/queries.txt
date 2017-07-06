@@ -1,0 +1,162 @@
+RELEASE 2
+CREATE TABLE person
+  (
+    person_id INTEGER PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    age INT
+  );
+
+  CREATE TABLE alias
+  (
+    alias_id INTEGER PRIMARY KEY,
+    alias VARCHAR(255),
+    person_id INT,
+    FOREIGN KEY (person_id)
+    REFERENCES person(person_id)
+  );
+
+  INSERT INTO person (first_name, last_name, age) VALUES ("Jun-fan","Lee",32);
+
+  INSERT INTO person (first_name, last_name, age) VALUES ("Carlos","Norris",77);
+
+  INSERT INTO person (first_name, last_name, age) VALUES ("Michael","Stallone",70);
+
+  INSERT INTO alias(alias, person_id) VALUES ("Bruce Lee",1);
+  INSERT INTO alias(alias, person_id) VALUES ("Small Phoenix",1);
+  INSERT INTO alias(alias, person_id) VALUES ("Little Dragon",1);
+
+  INSERT INTO alias(alias, person_id) VALUES ("The Texasa Ranger",2);
+  INSERT INTO alias(alias, person_id) VALUES ("Ground Chuck",2);
+  INSERT INTO alias(alias, person_id) VALUES ("Chuck Norris",2);
+
+  INSERT INTO alias(alias, person_id) VALUES ("Sylvester Stallone",3);
+  INSERT INTO alias(alias, person_id) VALUES ("Sly",3);
+  INSERT INTO alias(alias, person_id) VALUES ("The Italian Stallion",3);
+
+sqlite> SELECT * FROM person;
+
+person_id   first_name  last_name   age       
+----------  ----------  ----------  ----------
+1           Jun-fan     Lee         32        
+2           Carlos      Norris      77        
+3           Michael     Stallone    70      
+
+
+sqlite> SELECT * FROM alias;
+
+alias_id    alias       person_id 
+----------  ----------  ----------
+1           Bruce Lee   1         
+2           Small Phoe  1         
+3           Little Dra  1         
+4           The Texasa  2         
+5           Ground Chu  2         
+6           Chuck Norr  2         
+7           Sylvester   3         
+8           Sly         3         
+9           The Italia  3     
+
+sqlite> UPDATE person
+SET first_name = "Carlos Ray"
+WHERE first_name = "Carlos";
+
+sqlite> SELECT * FROM person, alias;
+person_id   first_name  last_name   age         alias_id    alias       person_id 
+----------  ----------  ----------  ----------  ----------  ----------  ----------
+1           Jun-fan     Lee         32          1           Bruce Lee   1         
+1           Jun-fan     Lee         32          2           Small Phoe  1         
+1           Jun-fan     Lee         32          3           Little Dra  1         
+1           Jun-fan     Lee         32          4           The Texasa  2         
+1           Jun-fan     Lee         32          5           Ground Chu  2         
+1           Jun-fan     Lee         32          6           Chuck Norr  2         
+1           Jun-fan     Lee         32          7           Sylvester   3         
+1           Jun-fan     Lee         32          8           Sly         3         
+1           Jun-fan     Lee         32          9           The Italia  3         
+2           Carlos Ray  Norris      77          1           Bruce Lee   1         
+2           Carlos Ray  Norris      77          2           Small Phoe  1         
+2           Carlos Ray  Norris      77          3           Little Dra  1         
+2           Carlos Ray  Norris      77          4           The Texasa  2         
+2           Carlos Ray  Norris      77          5           Ground Chu  2         
+2           Carlos Ray  Norris      77          6           Chuck Norr  2         
+2           Carlos Ray  Norris      77          7           Sylvester   3         
+2           Carlos Ray  Norris      77          8           Sly         3         
+2           Carlos Ray  Norris      77          9           The Italia  3         
+3           Michael     Stallone    70          1           Bruce Lee   1         
+3           Michael     Stallone    70          2           Small Phoe  1         
+3           Michael     Stallone    70          3           Little Dra  1         
+3           Michael     Stallone    70          4           The Texasa  2         
+3           Michael     Stallone    70          5           Ground Chu  2         
+3           Michael     Stallone    70          6           Chuck Norr  2         
+3           Michael     Stallone    70          7           Sylvester   3         
+3           Michael     Stallone    70          8           Sly         3         
+3           Michael     Stallone    70          9           The Italia  3
+
+
+sqlite> SELECT first_name, last_name, alias FROM person, alias;
+first_name  last_name   alias     
+----------  ----------  ----------
+Jun-fan     Lee         Bruce Lee 
+Jun-fan     Lee         Small Phoe
+Jun-fan     Lee         Little Dra
+Jun-fan     Lee         The Texasa
+Jun-fan     Lee         Ground Chu
+Jun-fan     Lee         Chuck Norr
+Jun-fan     Lee         Sylvester 
+Jun-fan     Lee         Sly       
+Jun-fan     Lee         The Italia
+Carlos Ray  Norris      Bruce Lee 
+Carlos Ray  Norris      Small Phoe
+Carlos Ray  Norris      Little Dra
+Carlos Ray  Norris      The Texasa
+Carlos Ray  Norris      Ground Chu
+Carlos Ray  Norris      Chuck Norr
+Carlos Ray  Norris      Sylvester 
+Carlos Ray  Norris      Sly       
+Carlos Ray  Norris      The Italia
+Michael     Stallone    Bruce Lee 
+Michael     Stallone    Small Phoe
+Michael     Stallone    Little Dra
+Michael     Stallone    The Texasa
+Michael     Stallone    Ground Chu
+Michael     Stallone    Chuck Norr
+Michael     Stallone    Sylvester 
+Michael     Stallone    Sly       
+Michael     Stallone    The Italia
+
+sqlite> DELETE FROM alias WHERE alias LIKE "Syl%";
+
+sqlite> select * from alias;
+alias_id    alias       person_id 
+----------  ----------  ----------
+1           Bruce Lee   1         
+2           Small Phoe  1         
+3           Little Dra  1         
+4           The Texasa  2         
+5           Ground Chu  2         
+6           Chuck Norr  2         
+8           Sly         3         
+9           The Italia  3
+
+RELEASE 3
+sqlite> SELECT first_name, last_name, alias FROM person JOIN alias ON person.person_id = alias.person_id;
+
+first_name  last_name   alias     
+----------  ----------  ----------
+Jun-fan     Lee         Bruce Lee 
+Jun-fan     Lee         Small Phoe
+Jun-fan     Lee         Little Dra
+Carlos Ray  Norris      The Texasa
+Carlos Ray  Norris      Ground Chu
+Carlos Ray  Norris      Chuck Norr
+Michael     Stallone    Sly       
+Michael     Stallone    The Italia
+
+sqlite> SELECT first_name, last_name, alias 
+FROM person JOIN alias ON person.person_id = alias.person_id
+WHERE first_name = "Jun-fan";
+first_name  last_name   alias     
+----------  ----------  ----------
+Jun-fan     Lee         Bruce Lee 
+Jun-fan     Lee         Small Phoe
+Jun-fan     Lee         Little Dra
