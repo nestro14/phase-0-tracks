@@ -7,3 +7,9 @@
     4. Have another resource open like the WC3 to refer to.
     5. Do this until you have about 30-20 mins left.
 3. Take your remaining time to YouTbue a tutorail on how to build something with JQuery and quickly see how tutorial uses certain methods and JQuery code to create something. 
+
+## JQuery Notes ##
+1. Resource took to long to look for.
+2. The documentation was more difficult to understand than i thought because there was many uses for JQuery. I then only focused on the the UI part of JQuery. I ended up at w3schools to test everything to understand the basic gist of the JQuery langauge. 
+3. Didn't find any tutorials really useful.
+
